@@ -11,6 +11,7 @@ class FoodViewController: UIViewController {
     
     let cornerRadiusConstant: CGFloat = 10
     var image: UIImage?
+    var foodName: String? 
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var caloriesView: UIView!

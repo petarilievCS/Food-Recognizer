@@ -14,6 +14,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
     var camera : UIImagePickerController?
     var takenImage: UIImage?
+    var scannedItem: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
     // Present camera session when button pressed
     @IBAction func scanButtonPressed(_ sender: UIButton) {
-    
+        
         // Request camera access
         AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { permissionGranted in
             if permissionGranted {
@@ -57,20 +58,31 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
             // Create an image classification request with an image classifier model.
             let imageClassificationRequest = VNCoreMLRequest(model: model) { request, error in
                 
+                if error != nil {
+                    print("Error in classification: \(error!.localizedDescription)")
+                } else {
+                    guard let results = request.results as? [VNClassificationObservation] else {
+                        fatalError("Error while accessing results")
+                    }
+                    if let firstResult = results.first {
+                        self.scannedItem = firstResult.identifier
+                        DispatchQueue.main.async {
+                            self.performSegue(withIdentifier: K.homeToInfoIdentifier, sender: self)
+                        }
+                    }
+                }
             }
             imageClassificationRequest.imageCropAndScaleOption = .centerCrop
             
             let handler = VNImageRequestHandler(ciImage: CIImage(image: takenImage!)!)
             let requests: [VNRequest] = [imageClassificationRequest]
-
+            
             // Start the image classification request.
             do {
                 try handler.perform(requests)
             } catch {
                 print("Error while performing request.")
             }
-            
-            performSegue(withIdentifier: K.homeToInfoIdentifier, sender: self)
         }
         
     }
@@ -78,6 +90,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationNC = segue.destination as! UINavigationController
         let destinationVC = destinationNC.viewControllers[0] as! FoodViewController
+        destinationVC.foodName = scannedItem!
         destinationVC.image = takenImage!
     }
     
@@ -85,27 +98,27 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     func cropImageToSquare(image: UIImage) -> UIImage? {
         var imageHeight = image.size.height
         var imageWidth = image.size.width
-
+        
         if imageHeight > imageWidth {
             imageHeight = imageWidth
         }
         else {
             imageWidth = imageHeight
         }
-
+        
         let size = CGSize(width: imageWidth, height: imageHeight)
-
+        
         let refWidth : CGFloat = CGFloat(image.cgImage!.width)
         let refHeight : CGFloat = CGFloat(image.cgImage!.height)
-
+        
         let x = (refWidth - size.width) / 2
         let y = (refHeight - size.height) / 2
-
+        
         let cropRect = CGRect(x: x, y: y, width: size.height, height: size.width)
         if let imageRef = image.cgImage!.cropping(to: cropRect) {
             return UIImage(cgImage: imageRef, scale: 0, orientation: image.imageOrientation)
         }
-
+        
         return nil
     }
     
@@ -119,19 +132,19 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
         
         // Create an instance of the image classifier's wrapper class.
         let imageClassifierWrapper = try? MobileNetV2(configuration: defaultConfig)
-
+        
         guard let imageClassifier = imageClassifierWrapper else {
             fatalError("App failed to create an image classifier model instance.")
         }
-
+        
         // Get the underlying model instance.
         let imageClassifierModel = imageClassifier.model
-
+        
         // Create a Vision instance using the image classifier's model instance.
         guard let imageClassifierVisionModel = try? VNCoreMLModel(for: imageClassifierModel) else {
             fatalError("App failed to create a `VNCoreMLModel` instance.")
         }
-
+        
         return imageClassifierVisionModel
     }
     
