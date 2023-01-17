@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		E658E2CC2976423500FDB229 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2CB2976423500FDB229 /* AppDelegate.swift */; };
 		E658E2CE2976423500FDB229 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2CD2976423500FDB229 /* SceneDelegate.swift */; };
-		E658E2D02976423500FDB229 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2CF2976423500FDB229 /* ViewController.swift */; };
+		E658E2D02976423500FDB229 /* HomeViewControlelr.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2CF2976423500FDB229 /* HomeViewControlelr.swift */; };
 		E658E2D32976423500FDB229 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E658E2D12976423500FDB229 /* Main.storyboard */; };
 		E658E2D52976423800FDB229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E658E2D42976423800FDB229 /* Assets.xcassets */; };
 		E658E2D82976423800FDB229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E658E2D62976423800FDB229 /* LaunchScreen.storyboard */; };
+		E658E2E22976437F00FDB229 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E12976437F00FDB229 /* K.swift */; };
+		E658E2E4297645BB00FDB229 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E3297645BB00FDB229 /* CameraViewController.swift */; };
+		E658E2E6297645D200FDB229 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E5297645D200FDB229 /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E658E2C82976423500FDB229 /* Food-Recognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food-Recognizer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E658E2CB2976423500FDB229 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E658E2CD2976423500FDB229 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E658E2CF2976423500FDB229 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E658E2CF2976423500FDB229 /* HomeViewControlelr.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControlelr.swift; sourceTree = "<group>"; };
 		E658E2D22976423500FDB229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E658E2D42976423800FDB229 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E658E2D72976423800FDB229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E658E2D92976423800FDB229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E658E2E12976437F00FDB229 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		E658E2E3297645BB00FDB229 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
+		E658E2E5297645D200FDB229 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +64,32 @@
 			children = (
 				E658E2CB2976423500FDB229 /* AppDelegate.swift */,
 				E658E2CD2976423500FDB229 /* SceneDelegate.swift */,
-				E658E2CF2976423500FDB229 /* ViewController.swift */,
-				E658E2D12976423500FDB229 /* Main.storyboard */,
+				E658E2DF297642F600FDB229 /* Controllers */,
+				E658E2E02976430500FDB229 /* View */,
 				E658E2D42976423800FDB229 /* Assets.xcassets */,
 				E658E2D62976423800FDB229 /* LaunchScreen.storyboard */,
 				E658E2D92976423800FDB229 /* Info.plist */,
+				E658E2E12976437F00FDB229 /* K.swift */,
 			);
 			path = "Food-Recognizer";
+			sourceTree = "<group>";
+		};
+		E658E2DF297642F600FDB229 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E658E2CF2976423500FDB229 /* HomeViewControlelr.swift */,
+				E658E2E3297645BB00FDB229 /* CameraViewController.swift */,
+				E658E2E5297645D200FDB229 /* FoodViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E658E2E02976430500FDB229 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E658E2D12976423500FDB229 /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +163,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E658E2D02976423500FDB229 /* ViewController.swift in Sources */,
+				E658E2E4297645BB00FDB229 /* CameraViewController.swift in Sources */,
+				E658E2D02976423500FDB229 /* HomeViewControlelr.swift in Sources */,
+				E658E2E22976437F00FDB229 /* K.swift in Sources */,
 				E658E2CC2976423500FDB229 /* AppDelegate.swift in Sources */,
+				E658E2E6297645D200FDB229 /* FoodViewController.swift in Sources */,
 				E658E2CE2976423500FDB229 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -295,6 +323,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -323,6 +352,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
