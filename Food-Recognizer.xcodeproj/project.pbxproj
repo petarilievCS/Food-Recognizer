@@ -16,6 +16,8 @@
 		E658E2E22976437F00FDB229 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E12976437F00FDB229 /* K.swift */; };
 		E658E2E6297645D200FDB229 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E5297645D200FDB229 /* FoodViewController.swift */; };
 		E68B615B297737FB008A3814 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E68B615A297737FB008A3814 /* MobileNetV2.mlmodel */; };
+		E68B615D29774A74008A3814 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B615C29774A74008A3814 /* APIManager.swift */; };
+		E68B616029774AA2008A3814 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68B615F29774AA2008A3814 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		E658E2E12976437F00FDB229 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 		E658E2E5297645D200FDB229 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		E68B615A297737FB008A3814 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
+		E68B615C29774A74008A3814 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		E68B615F29774AA2008A3814 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +68,13 @@
 			children = (
 				E658E2CB2976423500FDB229 /* AppDelegate.swift */,
 				E658E2CD2976423500FDB229 /* SceneDelegate.swift */,
-				E658E2DF297642F600FDB229 /* Controllers */,
+				E68B615E29774A81008A3814 /* Model */,
 				E658E2E02976430500FDB229 /* View */,
+				E658E2DF297642F600FDB229 /* Controllers */,
 				E658E2D42976423800FDB229 /* Assets.xcassets */,
 				E658E2D62976423800FDB229 /* LaunchScreen.storyboard */,
 				E658E2D92976423800FDB229 /* Info.plist */,
+				E68B615F29774AA2008A3814 /* Keys.swift */,
 				E658E2E12976437F00FDB229 /* K.swift */,
 				E68B615A297737FB008A3814 /* MobileNetV2.mlmodel */,
 			);
@@ -90,6 +96,14 @@
 				E658E2D12976423500FDB229 /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		E68B615E29774A81008A3814 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E68B615C29774A74008A3814 /* APIManager.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,11 +178,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E68B615B297737FB008A3814 /* MobileNetV2.mlmodel in Sources */,
+				E68B616029774AA2008A3814 /* Keys.swift in Sources */,
 				E658E2D02976423500FDB229 /* HomeViewController.swift in Sources */,
 				E658E2E22976437F00FDB229 /* K.swift in Sources */,
 				E658E2CC2976423500FDB229 /* AppDelegate.swift in Sources */,
 				E658E2E6297645D200FDB229 /* FoodViewController.swift in Sources */,
 				E658E2CE2976423500FDB229 /* SceneDelegate.swift in Sources */,
+				E68B615D29774A74008A3814 /* APIManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
