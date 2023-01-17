@@ -19,7 +19,7 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-jI-gBw">
                                 <rect key="frame" x="96.666666666666686" y="327" width="200" height="198.66666666666669"/>
-                                <color key="tintColor" systemColor="systemBackgroundColor"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="Ttb-AU-zjo"/>
                                     <constraint firstAttribute="width" constant="200" id="opu-f1-ytg"/>
@@ -34,13 +34,13 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <segue destination="pN1-a6-099" kind="presentation" modalPresentationStyle="fullScreen" id="UeU-Dd-5Qb"/>
+                                    <action selector="scanButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kg-Ql-qEy"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press To Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95A-xl-Zk0">
-                                <rect key="frame" x="102.66666666666669" y="536" width="188" height="31.333333333333371"/>
+                                <rect key="frame" x="102.66666666666669" y="536" width="188" height="32.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="27"/>
-                                <color key="textColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
