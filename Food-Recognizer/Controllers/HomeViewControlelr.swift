@@ -46,7 +46,7 @@ class HomeViewControlelr: UIViewController, UIImagePickerControllerDelegate & UI
     // Use image to classify appropriate food
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            takenImage = image
+            takenImage = cropImageToSquare(image: image)
             camera?.dismiss(animated: true)
             performSegue(withIdentifier: K.homeToInfoIdentifier, sender: self)
         }
@@ -57,6 +57,34 @@ class HomeViewControlelr: UIViewController, UIImagePickerControllerDelegate & UI
         let destinationNC = segue.destination as! UINavigationController
         let destinationVC = destinationNC.viewControllers[0] as! FoodViewController
         destinationVC.image = takenImage!
+    }
+    
+    // Crops the taken image to a square
+    func cropImageToSquare(image: UIImage) -> UIImage? {
+        var imageHeight = image.size.height
+        var imageWidth = image.size.width
+
+        if imageHeight > imageWidth {
+            imageHeight = imageWidth
+        }
+        else {
+            imageWidth = imageHeight
+        }
+
+        let size = CGSize(width: imageWidth, height: imageHeight)
+
+        let refWidth : CGFloat = CGFloat(image.cgImage!.width)
+        let refHeight : CGFloat = CGFloat(image.cgImage!.height)
+
+        let x = (refWidth - size.width) / 2
+        let y = (refHeight - size.height) / 2
+
+        let cropRect = CGRect(x: x, y: y, width: size.height, height: size.width)
+        if let imageRef = image.cgImage!.cropping(to: cropRect) {
+            return UIImage(cgImage: imageRef, scale: 0, orientation: image.imageOrientation)
+        }
+
+        return nil
     }
     
 }
