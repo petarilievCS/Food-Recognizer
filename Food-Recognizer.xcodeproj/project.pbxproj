@@ -14,7 +14,6 @@
 		E658E2D52976423800FDB229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E658E2D42976423800FDB229 /* Assets.xcassets */; };
 		E658E2D82976423800FDB229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E658E2D62976423800FDB229 /* LaunchScreen.storyboard */; };
 		E658E2E22976437F00FDB229 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E12976437F00FDB229 /* K.swift */; };
-		E658E2E4297645BB00FDB229 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E3297645BB00FDB229 /* CameraViewController.swift */; };
 		E658E2E6297645D200FDB229 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E658E2E5297645D200FDB229 /* FoodViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +27,6 @@
 		E658E2D72976423800FDB229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E658E2D92976423800FDB229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E658E2E12976437F00FDB229 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
-		E658E2E3297645BB00FDB229 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 		E658E2E5297645D200FDB229 /* FoodViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				E658E2CF2976423500FDB229 /* HomeViewControlelr.swift */,
-				E658E2E3297645BB00FDB229 /* CameraViewController.swift */,
 				E658E2E5297645D200FDB229 /* FoodViewController.swift */,
 			);
 			path = Controllers;
@@ -163,7 +160,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E658E2E4297645BB00FDB229 /* CameraViewController.swift in Sources */,
 				E658E2D02976423500FDB229 /* HomeViewControlelr.swift in Sources */,
 				E658E2E22976437F00FDB229 /* K.swift in Sources */,
 				E658E2CC2976423500FDB229 /* AppDelegate.swift in Sources */,

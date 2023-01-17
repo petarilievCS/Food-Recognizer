@@ -13,4 +13,7 @@ struct K {
     static let skyBlue = "Sky Blue"
     static let royalBlue = "Royal Blue"
     
+    // Identifiers
+    static let homeToInfoIdentifier = "homeToInfo"
+    
 }

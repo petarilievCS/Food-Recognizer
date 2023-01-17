@@ -10,6 +10,7 @@ import UIKit
 class FoodViewController: UIViewController {
     
     let cornerRadiusConstant: CGFloat = 10
+    var image: UIImage?
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var caloriesView: UIView!
@@ -24,17 +25,10 @@ class FoodViewController: UIViewController {
         proteinView.layer.cornerRadius = cornerRadiusConstant
         carbsView.layer.cornerRadius = cornerRadiusConstant
         fatsView.layer.cornerRadius = cornerRadiusConstant
+        
+        // Set image if present
+        if let safeImage = image {
+            imageView.image = safeImage
+        }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
