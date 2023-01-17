@@ -18,12 +18,14 @@ class FoodViewController: UIViewController {
     @IBOutlet weak var proteinView: UIView!
     @IBOutlet weak var carbsView: UIView!
     @IBOutlet weak var fatsView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.layer.borderWidth = 5.0
         imageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        nameLabel.text = foodName!
         
         caloriesView.layer.cornerRadius = cornerRadiusConstant
         proteinView.layer.cornerRadius = cornerRadiusConstant

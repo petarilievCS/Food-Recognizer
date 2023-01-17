@@ -65,7 +65,8 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
                         fatalError("Error while accessing results")
                     }
                     if let firstResult = results.first {
-                        self.scannedItem = firstResult.identifier
+                        let scannedItems = firstResult.identifier
+                        self.scannedItem = self.formatResult(scannedItems).capitalized
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: K.homeToInfoIdentifier, sender: self)
                         }
@@ -85,6 +86,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
             }
         }
         
+    }
+    
+    // Formats result string in case where it contains more than one result
+    func formatResult(_ result: String) -> String {
+        if result.contains(",") {
+            let position = result.firstIndex(of: ",")
+            return String(result[result.startIndex..<position!])
+        }
+        return result
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
