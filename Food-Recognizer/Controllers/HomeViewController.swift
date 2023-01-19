@@ -12,6 +12,7 @@ import CoreML
 
 protocol HomeViewControllerDelegate {
     func didUpdateInformation(with foodModel: FoodModel)
+    func didNotDetectFood()
 }
 
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
@@ -176,6 +177,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
 }
 
 extension HomeViewController: APIManagerDelegate {
+    
+    func didNotDetectFood() {
+        self.delegate?.didNotDetectFood()
+    }
+    
     func didUpdateInformation(foodModel: FoodModel) {
         calories = foodModel.calories
         protein = foodModel.protein

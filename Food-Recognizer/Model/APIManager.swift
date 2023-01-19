@@ -9,6 +9,7 @@ import Foundation
 
 protocol APIManagerDelegate {
     func didUpdateInformation(foodModel: FoodModel)
+    func didNotDetectFood()
 }
 
 struct APIManager {
@@ -19,7 +20,8 @@ struct APIManager {
     // Performs API request to FoodData Central for given food
     func performRequest(for food: String) {
         
-        if let URL = URL(string: "\(URLString)?api_key=\(Keys.foodDataCentralAPIKey)&query=\(food)&pageSize=1&pageNumber=1&dataType=Foundation") {
+        let foodWithNoSpaces = food.replacing(" ", with: "%20")
+        if let URL = URL(string: "\(URLString)?api_key=\(Keys.foodDataCentralAPIKey)&query=\(foodWithNoSpaces)&pageSize=1&pageNumber=1&dataType=Foundation") {
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: URL) { data, response, error in
                 if error != nil {
@@ -29,10 +31,17 @@ struct APIManager {
                 if let safeData = data {
                     if let foodModel = parseJSON(from: safeData, for: food) {
                         delegate?.didUpdateInformation(foodModel: foodModel)
+                    } else {
+                        delegate?.didNotDetectFood()
+                        print("Error: Data not parsed")
                     }
+                } else {
+                    print("Error: No API response")
                 }
             }
             task.resume()
+        } else {
+            print("Error: URL couldn't be formed")
         }
         
     }
@@ -48,6 +57,12 @@ struct APIManager {
             let carbs = nutrientValue(for: K.carbsID, in: decodedData)
             let fats = nutrientValue(for: K.fatsID, in: decodedData)
             let foodModel = FoodModel(name: foodName, calories: calories, protein: protein, fats: fats, carbs: carbs)
+            
+            // No response from API
+            if calories == -1 {
+                return nil
+            }
+            
             return foodModel
         } catch {
             print("Error parsing JSON: \(error)")
@@ -57,9 +72,11 @@ struct APIManager {
     
     // Returns the value of the nutrient with the given ID, -1 if nutrient not found
     func nutrientValue(for ID: Int, in responseObject: ResponseObject) -> Double {
-        for nutrient in responseObject.foods[0].foodNutrients {
-            if nutrient.nutrientId == ID {
-                return nutrient.value
+        if responseObject.foods.count >= 1 {
+            for nutrient in responseObject.foods[0].foodNutrients {
+                if nutrient.nutrientId == ID {
+                    return nutrient.value
+                }
             }
         }
         return -1

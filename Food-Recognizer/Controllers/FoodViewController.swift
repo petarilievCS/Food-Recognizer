@@ -46,12 +46,25 @@ class FoodViewController: UIViewController {
 }
 
 extension FoodViewController: HomeViewControllerDelegate {
+    
+    func didNotDetectFood() {
+        DispatchQueue.main.async {
+            self.nameLabel.text = "Did not detect food"
+            self.caloriesLabel.text = "0 kcal"
+            self.proteinLabel.text = "0 grams"
+            self.carbsLabel.text = "0 grams"
+            self.fatsLabel.text = "0 grams"
+        }
+    }
+    
     func didUpdateInformation(with foodModel: FoodModel) {
-        nameLabel.text = foodModel.name
-        caloriesLabel.text = "\(String(foodModel.calories )) kcal"
-        proteinLabel.text = "\(String(foodModel.protein )) grams"
-        carbsLabel.text = "\(String(foodModel.carbs )) grams"
-        fatsLabel.text = "\(String(foodModel.fats )) grams"
+        DispatchQueue.main.async {
+            self.nameLabel.text = foodModel.name
+            self.caloriesLabel.text = "\(String(foodModel.calories)) kcal"
+            self.proteinLabel.text = "\(String(foodModel.protein)) grams"
+            self.carbsLabel.text = "\(String(foodModel.carbs)) grams"
+            self.fatsLabel.text = "\(String(foodModel.fats)) grams"
+        }
     }
 }
 
