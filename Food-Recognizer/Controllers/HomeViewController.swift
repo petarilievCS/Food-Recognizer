@@ -10,17 +10,22 @@ import AVFoundation
 import Vision
 import CoreML
 
+protocol HomeViewControllerDelegate {
+    func didUpdateInformation(with foodModel: FoodModel)
+}
+
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var camera : UIImagePickerController?
     var takenImage: UIImage?
     var scannedItem: String?
     var apiManager: APIManager = APIManager()
+    var delegate: HomeViewControllerDelegate?
     
-    var calories: Int = 0
-    var protein: Int = 0
-    var carbs: Int = 0
-    var fats: Int = 0
+    var calories: Double = 0
+    var protein: Double = 0
+    var carbs: Double = 0
+    var fats: Double = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,8 +114,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationNC = segue.destination as! UINavigationController
         let destinationVC = destinationNC.viewControllers[0] as! FoodViewController
-        destinationVC.foodName = scannedItem!
         destinationVC.image = takenImage!
+        destinationVC.foodModel = FoodModel(name: scannedItem!, calories: calories, protein: protein, fats: fats, carbs: carbs)
+        self.delegate = destinationVC
     }
     
     // Crops the taken image to a square
@@ -175,5 +181,8 @@ extension HomeViewController: APIManagerDelegate {
         protein = foodModel.protein
         carbs = foodModel.carbs
         fats = foodModel.fats
+        self.delegate?.didUpdateInformation(with: foodModel)
     }
 }
+
+

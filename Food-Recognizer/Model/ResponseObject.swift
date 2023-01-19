@@ -17,7 +17,7 @@ struct Food: Codable {
 
 struct Nutrient: Codable {
     let nutrientId: Int
-    let value: Int
+    let value: Double
 }
 
 

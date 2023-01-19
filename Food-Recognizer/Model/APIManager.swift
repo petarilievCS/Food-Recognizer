@@ -50,13 +50,13 @@ struct APIManager {
             let foodModel = FoodModel(name: foodName, calories: calories, protein: protein, fats: fats, carbs: carbs)
             return foodModel
         } catch {
-            print("Error parsing JSON: \(error.localizedDescription)")
+            print("Error parsing JSON: \(error)")
             return nil
         }
     }
     
     // Returns the value of the nutrient with the given ID, -1 if nutrient not found
-    func nutrientValue(for ID: Int, in responseObject: ResponseObject) -> Int {
+    func nutrientValue(for ID: Int, in responseObject: ResponseObject) -> Double {
         for nutrient in responseObject.foods[0].foodNutrients {
             if nutrient.nutrientId == ID {
                 return nutrient.value

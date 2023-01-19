@@ -9,8 +9,8 @@ import Foundation
 
 struct FoodModel {
     let name: String
-    let calories: Int
-    let protein: Int
-    let fats: Int
-    let carbs: Int
+    let calories: Double
+    let protein: Double
+    let fats: Double
+    let carbs: Double
 }
