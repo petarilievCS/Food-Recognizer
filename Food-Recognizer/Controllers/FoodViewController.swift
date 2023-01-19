@@ -61,9 +61,25 @@ extension FoodViewController: HomeViewControllerDelegate {
         DispatchQueue.main.async {
             self.nameLabel.text = foodModel.name
             self.caloriesLabel.text = "\(String(foodModel.calories)) kcal"
-            self.proteinLabel.text = "\(String(foodModel.protein)) grams"
-            self.carbsLabel.text = "\(String(foodModel.carbs)) grams"
-            self.fatsLabel.text = "\(String(foodModel.fats)) grams"
+            
+            if foodModel.protein != -1 {
+                self.proteinLabel.text = "\(String(foodModel.protein)) grams"
+            } else {
+                self.proteinLabel.text = "Unknown"
+            }
+            
+            if foodModel.carbs != -1 {
+                self.carbsLabel.text = "\(String(foodModel.carbs)) grams"
+            } else {
+                self.carbsLabel.text = "Unknown"
+            }
+            
+            if foodModel.fats != -1 {
+                self.fatsLabel.text = "\(String(foodModel.fats)) grams"
+            } else {
+                self.fatsLabel.text = "Unknownr"
+            }
+            
         }
     }
 }
