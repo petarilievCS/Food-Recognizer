@@ -9,6 +9,7 @@ import UIKit
 import AVFoundation
 import Vision
 import CoreML
+import AudioToolbox
 
 protocol HomeViewControllerDelegate {
     func didUpdateInformation(with foodModel: FoodModel)
@@ -28,6 +29,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     var carbs: Double = 0
     var fats: Double = 0
     
+    @IBOutlet weak var cameraButton: UIButton!
+    @IBOutlet weak var cameraIcon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,8 +41,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
         camera?.sourceType = .camera
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        cameraIcon.tintColor = .white
+    }
+    
     // Present camera session when button pressed
     @IBAction func scanButtonPressed(_ sender: UIButton) {
+        
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        cameraIcon.tintColor = .systemGray4
         
         // Request camera access
         AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { permissionGranted in

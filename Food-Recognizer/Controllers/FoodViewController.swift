@@ -49,17 +49,17 @@ extension FoodViewController: HomeViewControllerDelegate {
     
     func didNotDetectFood() {
         DispatchQueue.main.async {
-            self.nameLabel.text = "Did not detect food"
-            self.caloriesLabel.text = "0 kcal"
-            self.proteinLabel.text = "0 grams"
-            self.carbsLabel.text = "0 grams"
-            self.fatsLabel.text = "0 grams"
+            self.nameLabel?.text = "Did not detect food"
+            self.caloriesLabel?.text = "0 kcal"
+            self.proteinLabel?.text = "0 grams"
+            self.carbsLabel?.text = "0 grams"
+            self.fatsLabel?.text = "0 grams"
         }
     }
     
     func didUpdateInformation(with foodModel: FoodModel) {
         DispatchQueue.main.async {
-            self.nameLabel.text = foodModel.name
+            self.nameLabel.text = "\(foodModel.name) (100g)"
             self.caloriesLabel.text = "\(String(foodModel.calories)) kcal"
             
             if foodModel.protein != -1 {

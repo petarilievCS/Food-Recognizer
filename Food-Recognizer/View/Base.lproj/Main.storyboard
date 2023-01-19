@@ -37,8 +37,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press To Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95A-xl-Zk0">
-                                <rect key="frame" x="102.66666666666669" y="536" width="188" height="32.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="27"/>
+                                <rect key="frame" x="105.66666666666669" y="536" width="182" height="32.333333333333371"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -55,6 +55,8 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="cameraButton" destination="eZR-3D-obk" id="LOi-bX-3RR"/>
+                        <outlet property="cameraIcon" destination="uXe-jI-gBw" id="Bwc-Ep-0AD"/>
                         <segue destination="pN1-a6-099" kind="presentation" identifier="homeToInfo" modalPresentationStyle="fullScreen" id="XYM-2o-fO7"/>
                     </connections>
                 </viewController>
