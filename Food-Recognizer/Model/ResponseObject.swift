@@ -7,21 +7,17 @@
 
 import Foundation
 
-struct ResponseObject: Encodable {
+struct ResponseObject: Codable {
     let foods: [Food]
 }
 
-struct Food: Encodable {
+struct Food: Codable {
     let foodNutrients: [Nutrient]
 }
 
-struct Nutrient: Encodable {
+struct Nutrient: Codable {
     let nutrientId: Int
     let value: Int
 }
 
-// Nutrient IDs
-// Energy - 1008
-// Protein - 1003
-// Carbs - 1050
-// Fat - 1004
+

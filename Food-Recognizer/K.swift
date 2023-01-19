@@ -16,4 +16,9 @@ struct K {
     // Identifiers
     static let homeToInfoIdentifier = "homeToInfo"
     
+    // Nutrient IDs
+    static let caloriesID = 1008
+    static let proteinID = 1003
+    static let carbsID = 1050
+    static let fatsID = 1004
 }

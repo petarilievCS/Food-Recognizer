@@ -17,9 +17,15 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     var scannedItem: String?
     var apiManager: APIManager = APIManager()
     
+    var calories: Int = 0
+    var protein: Int = 0
+    var carbs: Int = 0
+    var fats: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        apiManager.delegate = self
         camera = UIImagePickerController()
         camera?.delegate = self
         camera?.sourceType = .camera
@@ -163,3 +169,11 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
 }
 
+extension HomeViewController: APIManagerDelegate {
+    func didUpdateInformation(foodModel: FoodModel) {
+        calories = foodModel.calories
+        protein = foodModel.protein
+        carbs = foodModel.carbs
+        fats = foodModel.fats
+    }
+}

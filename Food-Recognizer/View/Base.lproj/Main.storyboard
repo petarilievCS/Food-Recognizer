@@ -238,11 +238,15 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="caloriesLabel" destination="On9-2T-B3E" id="ttG-81-LtV"/>
                         <outlet property="caloriesView" destination="z6f-jr-10t" id="m2x-7L-3gg"/>
+                        <outlet property="carbsLabel" destination="Nma-Q6-6B1" id="Tec-np-6pN"/>
                         <outlet property="carbsView" destination="RTH-xd-PE4" id="Xva-fO-P4f"/>
+                        <outlet property="fatsLabel" destination="gcg-hY-YRv" id="jBi-XB-TaO"/>
                         <outlet property="fatsView" destination="7ie-xY-WNj" id="3s6-Qr-Mhc"/>
                         <outlet property="imageView" destination="ubu-BY-JOL" id="qfx-uS-ywb"/>
                         <outlet property="nameLabel" destination="JZ2-Ft-bj3" id="MdS-fD-9Te"/>
+                        <outlet property="proteinLabel" destination="MDo-we-f73" id="907-D1-Cth"/>
                         <outlet property="proteinView" destination="CXN-wW-gEx" id="s8p-Ie-XYl"/>
                     </connections>
                 </viewController>

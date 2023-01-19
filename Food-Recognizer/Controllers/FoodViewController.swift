@@ -20,8 +20,14 @@ class FoodViewController: UIViewController {
     @IBOutlet weak var fatsView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var proteinLabel: UILabel!
+    @IBOutlet weak var carbsLabel: UILabel!
+    @IBOutlet weak var fatsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.layer.borderWidth = 5.0
         imageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
@@ -38,3 +44,4 @@ class FoodViewController: UIViewController {
         }
     }
 }
+
