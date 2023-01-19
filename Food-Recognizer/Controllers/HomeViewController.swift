@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     var camera : UIImagePickerController?
     var takenImage: UIImage?
     var scannedItem: String?
+    var apiManager: APIManager = APIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,7 +67,9 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
                     }
                     if let firstResult = results.first {
                         let scannedItems = firstResult.identifier
-                        self.scannedItem = self.formatResult(scannedItems).capitalized
+                        let formattedName = self.formatResult(scannedItems).capitalized
+                        self.scannedItem = formattedName
+                        self.apiManager.performRequest(for: formattedName)
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: K.homeToInfoIdentifier, sender: self)
                         }
