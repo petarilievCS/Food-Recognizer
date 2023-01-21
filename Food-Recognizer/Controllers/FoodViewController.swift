@@ -12,7 +12,7 @@ class FoodViewController: UIViewController {
     let cornerRadiusConstant: CGFloat = 10
     var image: UIImage?
     var foodModel: FoodModel?
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -40,7 +40,6 @@ class FoodViewController: UIViewController {
         if let safeImage = image {
             imageView.image = safeImage
         }
-        
     }
 }
 
@@ -61,7 +60,6 @@ extension FoodViewController: HomeViewControllerDelegate {
     
     func didUpdateInformation(with foodModel: FoodModel) {
         DispatchQueue.main.async {
-            // self.loadView()
             if self.nameLabel != nil {
                 self.nameLabel?.text = "\(foodModel.name)"
                 self.gramsLabel?.isHidden = false
@@ -84,7 +82,6 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "nutrientCell", for: indexPath)
@@ -110,6 +107,4 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
     }
-    
-    
 }
