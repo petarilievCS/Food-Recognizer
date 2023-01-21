@@ -21,7 +21,8 @@ struct APIManager {
     func performRequest(for food: String) {
         
         let foodWithNoSpaces = food.replacing(" ", with: "%20")
-        if let URL = URL(string: "\(URLString)?api_key=\(Keys.foodDataCentralAPIKey)&query=\(foodWithNoSpaces)&pageSize=1&pageNumber=1&dataType=Foundation") {
+        if let URL = URL(string: "\(URLString)?api_key=\(Keys.foodDataCentralAPIKey)&query=\(foodWithNoSpaces)&pageSize=1&pageNumber=1&dataType=Survey%20(FNDDS)") {
+            
             let session = URLSession(configuration: .default)
             let task = session.dataTask(with: URL) { data, response, error in
                 if error != nil {
