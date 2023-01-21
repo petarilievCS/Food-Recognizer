@@ -92,10 +92,12 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
                         let scannedItems = firstResult.identifier
                         let formattedName = self.formatResult(scannedItems).capitalized
                         self.scannedItem = formattedName
-                        self.apiManager.performRequest(for: formattedName)
+                        
                         DispatchQueue.main.async {
                             self.performSegue(withIdentifier: K.homeToInfoIdentifier, sender: self)
+                            self.apiManager.performRequest(for: formattedName)
                         }
+                        
                     }
                 }
             }

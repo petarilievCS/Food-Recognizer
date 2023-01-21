@@ -127,9 +127,9 @@
                                                     </tableViewCell>
                                                 </prototypes>
                                             </tableView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(100 G)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykd-JN-i1V">
-                                                <rect key="frame" x="201.00000000000003" y="360" width="115.33333333333334" height="42"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100 G" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykd-JN-i1V">
+                                                <rect key="frame" x="207" y="366" width="79.333333333333314" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" systemColor="secondaryLabelColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -140,8 +140,8 @@
                                             <constraint firstItem="cJ7-LR-etD" firstAttribute="centerX" secondItem="dxU-9R-a4J" secondAttribute="centerX" id="FbO-fy-VMn"/>
                                             <constraint firstItem="6AV-ty-kQa" firstAttribute="centerX" secondItem="dxU-9R-a4J" secondAttribute="centerX" id="Jcy-n3-UL1"/>
                                             <constraint firstAttribute="height" constant="800" id="PVG-bg-4In"/>
-                                            <constraint firstItem="Ykd-JN-i1V" firstAttribute="top" secondItem="cJ7-LR-etD" secondAttribute="bottom" constant="20" id="VlL-EH-VjT"/>
-                                            <constraint firstItem="Ykd-JN-i1V" firstAttribute="leading" secondItem="5Mp-QX-NFj" secondAttribute="trailing" constant="2" id="Yya-BX-qrJ"/>
+                                            <constraint firstItem="Ykd-JN-i1V" firstAttribute="top" secondItem="cJ7-LR-etD" secondAttribute="bottom" constant="26" id="VlL-EH-VjT"/>
+                                            <constraint firstItem="Ykd-JN-i1V" firstAttribute="leading" secondItem="5Mp-QX-NFj" secondAttribute="trailing" constant="5" id="Yya-BX-qrJ"/>
                                             <constraint firstItem="cJ7-LR-etD" firstAttribute="top" secondItem="dxU-9R-a4J" secondAttribute="top" constant="40" id="dRp-eb-JO6"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Mp-QX-NFj" secondAttribute="trailing" constant="20" symbolic="YES" id="ea9-ey-E3C"/>
                                             <constraint firstItem="6AV-ty-kQa" firstAttribute="top" secondItem="5Mp-QX-NFj" secondAttribute="bottom" constant="20" id="lq2-8P-jTH"/>

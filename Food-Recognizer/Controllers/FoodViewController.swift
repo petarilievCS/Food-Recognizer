@@ -48,24 +48,31 @@ extension FoodViewController: HomeViewControllerDelegate {
     
     func didNotDetectFood() {
         DispatchQueue.main.async {
-            self.nameLabel?.text = "Did not detect food"
+            self.nameLabel?.text = "No Food Detected"
             self.calories = 0
             self.protein = 0
             self.fats = 0
             self.carbs = 0
-            self.tableView.reloadData()
+            if let safeTableView = self.tableView {
+                safeTableView.reloadData()
+            }
         }
     }
     
     func didUpdateInformation(with foodModel: FoodModel) {
         DispatchQueue.main.async {
-            self.nameLabel.text = "\(foodModel.name)"
-            self.gramsLabel.isHidden = false
-            self.calories = Int(foodModel.calories)
-            self.protein = Int(foodModel.protein)
-            self.carbs = Int(foodModel.carbs)
-            self.fats = Int(foodModel.fats)
-            self.tableView.reloadData()
+            // self.loadView()
+            if self.nameLabel != nil {
+                self.nameLabel?.text = "\(foodModel.name)"
+                self.gramsLabel?.isHidden = false
+                self.calories = Int(foodModel.calories)
+                self.protein = Int(foodModel.protein)
+                self.carbs = Int(foodModel.carbs)
+                self.fats = Int(foodModel.fats)
+                self.tableView?.reloadData()
+            } else {
+                self.didUpdateInformation(with: foodModel)
+            }
         }
     }
 }
