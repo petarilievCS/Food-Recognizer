@@ -31,7 +31,7 @@ class FoodViewController: UIViewController {
         
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         imageView.layer.borderWidth = 5.0
-        imageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        imageView.layer.borderColor = UIColor.label.cgColor
         
         tableView.layer.cornerRadius = cornerRadiusConstant
         gramsLabel.isHidden = true
