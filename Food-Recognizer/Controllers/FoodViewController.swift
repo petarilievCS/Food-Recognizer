@@ -41,6 +41,24 @@ class FoodViewController: UIViewController {
             imageView.image = safeImage
         }
     }
+    
+    @IBAction func infoBarButtonPressed(_ sender: UIBarButtonItem) {
+        performSegue(withIdentifier: K.popoverSegueIdentifier, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.popoverSegueIdentifier {
+            let popoverViewController = segue.destination
+            popoverViewController.modalPresentationStyle = UIModalPresentationStyle.popover
+            
+            if let presentationController = popoverViewController.popoverPresentationController {
+                presentationController.delegate = self
+                presentationController.permittedArrowDirections = .up
+                presentationController.sourceView = self.view
+                presentationController.sourceRect = CGRectMake(0, 0, 50, 50)
+            }
+        }
+    }
 }
 
 extension FoodViewController: HomeViewControllerDelegate {
@@ -106,5 +124,13 @@ extension FoodViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70.0
+    }
+}
+
+// MARK: - Popover Delegate methods
+
+extension FoodViewController: UIPopoverPresentationControllerDelegate, UIPopoverPresentationControllerSourceItem {
+    func adaptivePresentationStyle(for controller: UIPresentationController, traitCollection: UITraitCollection) -> UIModalPresentationStyle {
+        return .none
     }
 }

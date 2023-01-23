@@ -15,6 +15,7 @@ struct K {
     
     // Identifiers
     static let homeToInfoIdentifier = "homeToInfo"
+    static let popoverSegueIdentifier = "popoverSegue"
     
     // Nutrient IDs
     static let caloriesID = 1008
