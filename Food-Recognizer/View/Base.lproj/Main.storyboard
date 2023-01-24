@@ -168,18 +168,29 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="s91-x3-txg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="AcI-pb-XyJ">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="eBz-nC-DCv"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="AcI-pb-XyJ">
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" modalPresentationStyle="fullScreen" id="eBz-nC-DCv"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="info.circle" catalog="system" style="done" id="zYE-pI-gkr">
+                                <color key="tintColor" systemColor="labelColor"/>
+                                <connections>
+                                    <action selector="infoBarButtonPressed:" destination="2OB-eR-Tp5" id="1Ka-fa-kYi"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="gramsLabel" destination="Ykd-JN-i1V" id="Mq2-LV-v5f"/>
                         <outlet property="imageView" destination="cJ7-LR-etD" id="Wsl-7n-y4u"/>
                         <outlet property="nameLabel" destination="5Mp-QX-NFj" id="9mc-At-cEH"/>
                         <outlet property="tableView" destination="6AV-ty-kQa" id="5Mv-if-SgP"/>
+                        <segue destination="cDp-w7-PXh" kind="popoverPresentation" identifier="popoverSegue" popoverAnchorBarButtonItem="zYE-pI-gkr" id="lOQ-GN-Od7">
+                            <popoverArrowDirection key="popoverArrowDirection" down="YES"/>
+                        </segue>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpA-QR-7HJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -205,13 +216,72 @@
             </objects>
             <point key="canvasLocation" x="1852.6717557251907" y="-35.211267605633807"/>
         </scene>
+        <!--Popover View Controller-->
+        <scene sceneID="0dv-Uj-hUk">
+            <objects>
+                <viewController storyboardIdentifier="InfoViewController" id="cDp-w7-PXh" customClass="PopoverViewController" customModule="Food_Recognizer" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9NU-ue-reH">
+                        <rect key="frame" x="0.0" y="0.0" width="250" height="130"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="All nutritional information has been obtained from FoodData Central APII and can be accessed at" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gX9-eU-Ycb">
+                                <rect key="frame" x="10" y="24.999999999999993" width="235" height="81.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifq-pE-TWG" userLabel="https://fdc.nal.usda.gov">
+                                <rect key="frame" x="10" y="106.33333333333333" width="235" height="20"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="https://fdc.nal.usda.gov">
+                                        <attributes>
+                                            <color key="NSColor" systemColor="linkColor"/>
+                                            <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="I4Y-Ub-u3a"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="gX9-eU-Ycb" secondAttribute="trailing" constant="5" id="GF0-Bl-F38"/>
+                            <constraint firstItem="gX9-eU-Ycb" firstAttribute="top" secondItem="9NU-ue-reH" secondAttribute="top" constant="25" id="YS0-h2-dlT"/>
+                            <constraint firstItem="gX9-eU-Ycb" firstAttribute="leading" secondItem="I4Y-Ub-u3a" secondAttribute="leading" constant="10" id="ggS-CX-EXy"/>
+                            <constraint firstItem="I4Y-Ub-u3a" firstAttribute="trailing" secondItem="ifq-pE-TWG" secondAttribute="trailing" constant="5" id="hE3-9Y-sEj"/>
+                            <constraint firstItem="ifq-pE-TWG" firstAttribute="leading" secondItem="I4Y-Ub-u3a" secondAttribute="leading" constant="10" id="iXr-dG-RlB"/>
+                            <constraint firstItem="ifq-pE-TWG" firstAttribute="top" secondItem="gX9-eU-Ycb" secondAttribute="bottom" id="sju-IM-bya"/>
+                        </constraints>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="250" height="130"/>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="250" height="130"/>
+                    <connections>
+                        <outlet property="linkLabel" destination="ifq-pE-TWG" id="8Cc-Se-Ru3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1KB-ud-RAK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3487.7862595419847" y="-36.971830985915496"/>
+        </scene>
     </scenes>
     <resources>
         <image name="apple" width="853" height="853"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
         <namedColor name="Sky Blue">
             <color red="0.29411764705882354" green="0.4823529411764706" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
