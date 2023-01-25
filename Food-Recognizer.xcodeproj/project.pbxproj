@@ -346,7 +346,7 @@
 				DEVELOPMENT_TEAM = 59DXMVY9R4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-Recognizer/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Food Recognizer";
+				INFOPLIST_KEY_CFBundleDisplayName = "Fit Scanner";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Application needs camera access in order to take photo of food to recognize";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -381,7 +381,7 @@
 				DEVELOPMENT_TEAM = 59DXMVY9R4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Food-Recognizer/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = "Food Recognizer";
+				INFOPLIST_KEY_CFBundleDisplayName = "Fit Scanner";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Application needs camera access in order to take photo of food to recognize";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
