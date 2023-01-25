@@ -38,7 +38,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
         apiManager.delegate = self
         camera = UIImagePickerController()
         camera?.delegate = self
-        camera?.sourceType = .camera
+        camera?.sourceType = .photoLibrary
     }
     
     override func viewWillAppear(_ animated: Bool) {
