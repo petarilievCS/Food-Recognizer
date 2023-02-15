@@ -19,6 +19,7 @@ protocol HomeViewControllerDelegate {
 class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate {
     
     var camera : UIImagePickerController?
+    var gallery : UIImagePickerController?
     var takenImage: UIImage?
     var scannedItem: String?
     var apiManager: APIManager = APIManager()
@@ -31,18 +32,24 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var cameraIcon: UIImageView!
+    @IBOutlet weak var galleryIcon: UIImageView!
+    @IBOutlet weak var galleryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         apiManager.delegate = self
         camera = UIImagePickerController()
+        gallery = UIImagePickerController()
         camera?.delegate = self
-        camera?.sourceType = .photoLibrary
+        camera?.sourceType = .camera
+        gallery?.delegate = self
+        gallery?.sourceType = .photoLibrary
     }
     
     override func viewWillAppear(_ animated: Bool) {
         cameraIcon.tintColor = .white
+        galleryIcon.tintColor = .white
     }
     
     // Present camera session when button pressed
@@ -58,6 +65,29 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
             }
         })
         
+    }
+    
+    // Open image gallery
+    @IBAction func galleryButtonPressed(_ sender: UIButton) {
+        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+        galleryIcon.tintColor = .systemGray4
+        
+        // Request camera access
+        AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { permissionGranted in
+            if permissionGranted {
+                self.presentGallery()
+            }
+        })
+    }
+    
+    // Create a camera session and present it to user
+    func presentGallery() {
+        guard let safeGallery = gallery else {
+            fatalError("Camera picker not initialized")
+        }
+        DispatchQueue.main.async {
+            self.present(safeGallery, animated: true)
+        }
     }
     
     // Create a camera session and present it to user

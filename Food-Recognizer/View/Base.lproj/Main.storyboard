@@ -17,47 +17,97 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uXe-jI-gBw">
-                                <rect key="frame" x="96.666666666666686" y="327" width="200" height="198.66666666666669"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="Ttb-AU-zjo"/>
-                                    <constraint firstAttribute="width" constant="200" id="opu-f1-ytg"/>
-                                </constraints>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZR-3D-obk">
-                                <rect key="frame" x="96.666666666666686" y="326" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="jEw-9j-pYm"/>
-                                    <constraint firstAttribute="width" constant="200" id="lkY-wV-8IA"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain"/>
-                                <connections>
-                                    <action selector="scanButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8kg-Ql-qEy"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press To Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95A-xl-Zk0">
-                                <rect key="frame" x="105.66666666666669" y="536" width="182" height="32.333333333333371"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="16d-yi-Jke">
+                                <rect key="frame" x="41.666666666666657" y="335" width="310" height="182.33333333333337"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pgc-2B-R1Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="182.33333333333334"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-150" translatesAutoresizingMaskIntoConstraints="NO" id="GL0-Gb-XaO">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="uaY-RD-WXm">
+                                                        <rect key="frame" x="0.0" y="1" width="150" height="148.66666666666666"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="ghV-R3-WJD"/>
+                                                            <constraint firstAttribute="height" constant="150" id="jsK-VF-rY0"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KvG-ao-xAN">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="QEX-11-Gws"/>
+                                                            <constraint firstAttribute="height" constant="150" id="mZ3-jn-zl7"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="scanButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="orI-uw-Xed"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qhC-Kw-U4K">
+                                                <rect key="frame" x="0.0" y="150" width="150" height="32.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="BXv-MH-TS9">
+                                        <rect key="frame" x="160" y="0.0" width="150" height="182.33333333333334"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-150" translatesAutoresizingMaskIntoConstraints="NO" id="jej-62-0ah">
+                                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="L4h-rJ-XCu">
+                                                        <rect key="frame" x="0.0" y="1" width="150" height="148.66666666666666"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="d53-7J-efs"/>
+                                                            <constraint firstAttribute="height" constant="150" id="yjh-Pg-LX3"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9iS-QE-1I2">
+                                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="150" id="RiF-d6-zhm"/>
+                                                            <constraint firstAttribute="height" constant="150" id="YQL-XM-FZn"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain"/>
+                                                        <connections>
+                                                            <action selector="galleryButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OaE-x7-e3Y"/>
+                                                            <action selector="scanButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5l4-nk-q37"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Library" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42x-oJ-jDC">
+                                                <rect key="frame" x="0.0" y="150" width="150" height="32.333333333333343"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="Sky Blue"/>
                         <constraints>
-                            <constraint firstItem="95A-xl-Zk0" firstAttribute="top" secondItem="uXe-jI-gBw" secondAttribute="bottom" constant="10" id="3w4-Gd-LxF"/>
-                            <constraint firstItem="eZR-3D-obk" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9FP-Xg-L2f"/>
-                            <constraint firstItem="uXe-jI-gBw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Fus-Nr-amz"/>
-                            <constraint firstItem="uXe-jI-gBw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Qvf-mE-Byl"/>
-                            <constraint firstItem="eZR-3D-obk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TSy-JJ-gd5"/>
-                            <constraint firstItem="95A-xl-Zk0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="W5o-Oh-tKt"/>
+                            <constraint firstItem="16d-yi-Jke" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1px-ct-hl1"/>
+                            <constraint firstItem="16d-yi-Jke" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Mdg-eb-gxG"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="cameraButton" destination="eZR-3D-obk" id="LOi-bX-3RR"/>
-                        <outlet property="cameraIcon" destination="uXe-jI-gBw" id="Bwc-Ep-0AD"/>
+                        <outlet property="cameraButton" destination="KvG-ao-xAN" id="sCS-Yx-an3"/>
+                        <outlet property="cameraIcon" destination="uaY-RD-WXm" id="fyQ-8h-RkG"/>
+                        <outlet property="galleryButton" destination="9iS-QE-1I2" id="vop-iv-7TB"/>
+                        <outlet property="galleryIcon" destination="L4h-rJ-XCu" id="ctL-OZ-ecL"/>
                         <segue destination="pN1-a6-099" kind="presentation" identifier="homeToInfo" modalPresentationStyle="fullScreen" id="XYM-2o-fO7"/>
                     </connections>
                 </viewController>
@@ -273,6 +323,7 @@
         <image name="apple" width="853" height="853"/>
         <image name="camera.circle.fill" catalog="system" width="128" height="123"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="photo.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="Sky Blue">
             <color red="0.29411764705882354" green="0.4823529411764706" blue="0.92549019607843142" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
