@@ -69,8 +69,14 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
     
     // Open image gallery
     @IBAction func galleryButtonPressed(_ sender: UIButton) {
+        
         UIImpactFeedbackGenerator(style: .light).impactOccurred()
         galleryIcon.tintColor = .systemGray4
+        
+        let seconds = 1.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+            self.galleryIcon.tintColor = .white
+        }
         
         // Request camera access
         AVCaptureDevice.requestAccess(for: AVMediaType.video, completionHandler: { permissionGranted in
@@ -105,6 +111,7 @@ class HomeViewController: UIViewController, UIImagePickerControllerDelegate & UI
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             takenImage = cropImageToSquare(image: image)
             camera?.dismiss(animated: true)
+            gallery?.dismiss(animated: true)
             
             // Clasiffy image
             let model = HomeViewController.createImageClassifier()

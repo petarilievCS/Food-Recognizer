@@ -29,16 +29,16 @@ class FoodViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        imageView.layer.borderWidth = 5.0
-        imageView.layer.borderColor = UIColor.label.cgColor
+        imageView?.layer.cornerRadius = imageView.frame.size.width / 2
+        imageView?.layer.borderWidth = 5.0
+        imageView?.layer.borderColor = UIColor.label.cgColor
         
         tableView.layer.cornerRadius = cornerRadiusConstant
         gramsLabel.isHidden = true
         
         // Set image if present
         if let safeImage = image {
-            imageView.image = safeImage
+            imageView?.image = safeImage
         }
     }
     
