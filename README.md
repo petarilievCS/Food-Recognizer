@@ -8,5 +8,5 @@ is developed fully in Swift, using UIKit.
 
 # Screenshots
 
-<img src="https://user-images.githubusercontent.com/90746623/220435826-83718ae7-42d4-4787-a467-0ab7fcd654e5.png" width="266" height="576"/><img src="https://user-images.githubusercontent.com/90746623/220435813-42c9d11a-92ff-448e-ba09-e4814086cb48.png" width="266" height="576"/><img src="https://user-images.githubusercontent.com/90746623/220435819-7b198daf-14e0-4e34-89d9-f4b1d16abfa9.png" width="266" height="576"/>
+<img src="https://user-images.githubusercontent.com/90746623/220435826-83718ae7-42d4-4787-a467-0ab7fcd654e5.png" width="266" height="576"/><img src="https://user-images.githubusercontent.com/90746623/220435819-7b198daf-14e0-4e34-89d9-f4b1d16abfa9.png" width="266" height="576"/><img src="https://user-images.githubusercontent.com/90746623/220435813-42c9d11a-92ff-448e-ba09-e4814086cb48.png" width="266" height="576"/>
 
